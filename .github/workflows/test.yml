@@ -7,10 +7,13 @@ jobs:
   test:
     env:
       REF: ${{ github.ref }}
-    run: |
-      echo REF=$REF
-      true
+    steps:
+      - run: |
+        echo REF=$REF
+        true
 
   deploy:
+    needs: test
     if: startsWith(github.ref, 'refs/tags/v')
-    run: echo Deploying
+    steps:
+      - run: echo Deploying

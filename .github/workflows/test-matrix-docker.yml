@@ -20,4 +20,4 @@ jobs:
       matrix:
         group: [primary, terran, protoss, zerg]
     steps:
-      run: echo ${{ matrix.group }}
+      - run: echo ${{ matrix.group }}

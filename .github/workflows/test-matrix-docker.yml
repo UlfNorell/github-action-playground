@@ -1,0 +1,23 @@
+
+name: test-matrix-docker
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: aiarena/arenaclient-sc2-base:latest
+      # env:
+      #   NODE_ENV: development
+      # ports:
+      #   - 80
+      # volumes:
+      #   - my_docker_volume:/volume_mount
+      options: --cpus 1
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [primary, terran, protoss, zerg]
+    steps:
+      run: echo ${{ matrix.group }}

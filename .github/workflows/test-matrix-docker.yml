@@ -5,6 +5,7 @@ on: [push]
 
 jobs:
   test:
+    if: false # Disable for now as it's rather expensive
     runs-on: ubuntu-latest
     container:
       image: aiarena/arenaclient-sc2-base:latest

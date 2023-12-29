@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: Run tests
         run: echo REF=$REF
+      - run: |
+          echo "::warning :: 1"
+          >&2 echo "::warning :: 2"
+
 
   deploy:
     runs-on: ubuntu-20.04

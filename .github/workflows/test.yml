@@ -12,7 +12,9 @@ jobs:
       - name: Run tests
         run: echo REF=$REF
       - run: |
+          echo "::group::thegroup"
           echo "::warning :: 1"
+          echo "::endgroup::"
           >&2 echo "::warning :: 2"
 
 

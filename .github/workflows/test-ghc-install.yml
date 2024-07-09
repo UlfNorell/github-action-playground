@@ -28,8 +28,7 @@ jobs:
           cd ghc-${{matrix.ghc-version}}-x86_64-unknown-linux
           ./configure --prefix=$HOME/.local/install/ghc
           make install
-          cat $GITHUB_PATH
-          echo "$HOME/.local/install/ghc/bin" >> $GITHUB_PATH
+          echo "$HOME/.local/install/ghc/bin/" >> $GITHUB_PATH
           cd
           ghc --version
 

@@ -32,8 +32,8 @@ jobs:
           ./configure --prefix=$HOME/.local/install/ghc
           make install
           cd $HOME/tmp
-          wget -nv https://downloads.haskell.org/~cabal/cabal-install-3.10.1.0/cabal-install-3.10.1.0-x86_64-darwin.tar.xz
-          tar xf cabal-install-3.10.1.0-x86_64-darwin.tar.xz
+          wget -nv https://downloads.haskell.org/~cabal/cabal-install-3.10.1.0/cabal-install-3.10.1.0-x86_64-deb11.tar.xz
+          tar xf cabal-install-3.10.1.0-x86_64-deb11.tar.xz
           rm plan.json
           mkdir -p $HOME/.local/install/cabal/bin/
           mv cabal $HOME/.local/install/cabal/bin/

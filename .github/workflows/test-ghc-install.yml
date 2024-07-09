@@ -19,7 +19,9 @@ jobs:
         ghc-version: [9.8.2]
       fail-fast: false
     steps:
-      - run: echo "$HOME/.local/install/ghc/bin/" >> $GITHUB_PATH
+      - run: |
+          echo "$HOME/.local/install/ghc/bin/" >> $GITHUB_PATH
+          echo "$HOME/.local/install/cabal/bin/" >> $GITHUB_PATH
       - run: |
           ghcup nuke
           mkdir $HOME/tmp
@@ -29,8 +31,12 @@ jobs:
           cd ghc-${{matrix.ghc-version}}-x86_64-unknown-linux
           ./configure --prefix=$HOME/.local/install/ghc
           make install
-      - run:
-          ghcup install-cabal
+          cd $HOME/tmp
+          wget -nv https://downloads.haskell.org/~cabal/cabal-install-3.10.1.0/cabal-install-3.10.1.0-x86_64-darwin.tar.xz
+          tar xf cabal-install-3.10.1.0-x86_64-darwin.tar.xz
+          rm plan.json
+          mkdir -p $HOME/.local/install/cabal/bin/
+          mv cabal $HOME/.local/install/cabal/bin/
       - run:
           ghc --version
           cabal --version

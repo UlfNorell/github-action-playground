@@ -37,6 +37,6 @@ jobs:
           rm plan.json
           mkdir -p $HOME/.local/install/cabal/bin/
           mv cabal $HOME/.local/install/cabal/bin/
-      - run:
+      - run: |
           ghc --version
           cabal --version

@@ -20,7 +20,7 @@ jobs:
       fail-fast: false
     steps:
       - run: |
-          sudo apt-get remove haskell-platform
+          apt-file search $(which ghc)
           mkdir $HOME/tmp
           cd $HOME/tmp
           wget -nv https://downloads.haskell.org/~ghc/${{matrix.ghc-version}}/ghc-${{matrix.ghc-version}}-x86_64-deb11-linux.tar.xz

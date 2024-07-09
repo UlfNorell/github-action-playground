@@ -19,6 +19,7 @@ jobs:
         ghc-version: [9.8.2]
       fail-fast: false
     steps:
+      - run: echo "$HOME/.local/install/ghc/bin/" >> $GITHUB_PATH
       - run: |
           ghcup nuke
           mkdir $HOME/tmp
@@ -28,7 +29,6 @@ jobs:
           cd ghc-${{matrix.ghc-version}}-x86_64-unknown-linux
           ./configure --prefix=$HOME/.local/install/ghc
           make install
-          echo "$HOME/.local/install/ghc/bin/" >> $GITHUB_PATH
           cd
           ghc --version
 

@@ -1,0 +1,13 @@
+
+name: whoami
+
+on: [push]
+
+jobs:
+  whoami:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: |
+          whoami
+          id -u
+          id -g
